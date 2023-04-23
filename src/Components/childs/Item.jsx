@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { AiOutlineHeart } from "react-icons/ai"
 import { FiShoppingCart } from "react-icons/fi"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addLiked, removeLiked } from '../../app/features/liked/LikedSlice';
 
 
-const Item = ({ item }) => {
+const Item = ({ item, isLiked }) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch()
@@ -15,7 +15,9 @@ const Item = ({ item }) => {
         setIsLoading(false)
     }, 7000)
 
-
+    // const [liked, setLiked] = useState(false)
+    const liked  = useSelector(state => state.liked);
+    console.log(liked);
 
     return (
         <>
@@ -42,7 +44,7 @@ const Item = ({ item }) => {
                         </div>
                     </div>
                     :
-                    <Link to={`/categories/:${item.id}`}>
+                    // <Link to={`/categories/:${item.id}`}>
                         <div className='h-[402px]  cursor-pointer rounded-[12px] w-[230px]'>
                             <div className='w-full rounded-[12px] h-[75%]' style={{
                                 background: `url(${item.img})`,
@@ -52,18 +54,19 @@ const Item = ({ item }) => {
                             }}
 
                             >
-                                <div className='flex p-[10px] justify-end'>
-                                    <AiOutlineHeart style={{
-                                        color: '#ACACAC', width: '21px', height: '19px',
+                                <button  className='flex p-[10px] justify-end'>
+                                    <AiOutlineHeart onClick={isLiked} style={{
+                                        color: liked ? "#ACACAC" : 'red', width: '21px', height: '19px',
                                         cursor: 'pointer'
                                     }} />
-                                </div>
+                                </button>  
+
                             </div>
-                            <div className='w-full h-[25%] pl-[10px] pt-[5px] tr rounded-[12px] '>
-                                <p className='text-[14px]  w-[150px]'>
+                            <div className='w-full h-[25%] pl-[10px] pt-[5px]  rounded-[12px] '>
+                                <p className='text-[14px] select-none  w-[150px]'>
                                     {item.desc}
                                 </p>
-                                <p className='pt-[10px] text-[16px] '>
+                                <p className='pt-[10px] select-none text-[16px] '>
                                     {item.price}
                                 </p>
                                 <div className='flex items-end justify-end relative top-[-29px] pr-[5px] cursor-pointer  '>
@@ -71,7 +74,7 @@ const Item = ({ item }) => {
                                 </div>
                             </div>
                         </div>
-                    </Link>
+                    // </Link>
             }
         </>
     );
