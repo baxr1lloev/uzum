@@ -6,7 +6,7 @@ import { CgProfile } from 'react-icons/cg';
 
 const Header = () => {
     return (
-        <div className='w-full justify-center flex h-[60px] shad '>
+        <div className='w-full justify-center flex h-[60px] shadow '>
             <div className='w-[85%] flex justify-between items-center bg-[] '>
                 <img src="/src/assets/uzum.svg" alt="" />
                 <button className='bg-[#EAEAF9] border-none rounded-[4px] w-[80px] h-[32px] '>

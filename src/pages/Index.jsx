@@ -19,7 +19,6 @@ const Index = () => {
             {
                 Isloading ? <><Loading /></> : <><Header /> <Swipper /> <Famous /></>
             }
-
         </>
     );
 };
