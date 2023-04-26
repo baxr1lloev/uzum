@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../app/features/uzumData/thunk';
 
 const LikeFooterItem = ({id}) => {
 
-    const grids = useSelector(state => state.someReducer);
+    const grids = useSelector(state => state.someReducer.goods);
+    const dispatch = useDispatch()
     const data = grids.filter((i) => i.id === +id)
 
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [])
 
-    console.log(grids)
+    console.log(data)
 
     return (
         <div className='h-[470px] shadow  cursor-pointer rounded-[12px] w-[230px]'>

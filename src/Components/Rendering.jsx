@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LikeFooterItem from './LikeFooterItem';
+import { getUsers } from '../app/features/uzumData/thunk';
+import Header from './Header';
 
 
 
 const Rendering = ({ id }) => {
 
+    const grids = useSelector(state => state.someReducer.goods);
     const [count, setCount] = useState(0)
-    const grids = useSelector(state => state.someReducer);
+    const dispatch = useDispatch()
     const data = grids.filter((i) => i.id === +id)
 
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [])
 
-    console.log(data)
 
     return (
 
-        
+
         <>
             <div className='flex pt-[40px] items-center justify-center'>
                 <div className='w-[85%]'>
@@ -136,11 +141,11 @@ const Rendering = ({ id }) => {
 
                             <div className='gap-[100px] pt-[20px] grid grid-cols-5 '>
 
-                                <LikeFooterItem/>
-                                <LikeFooterItem/>
-                                <LikeFooterItem/>
-                                <LikeFooterItem/>
-                                <LikeFooterItem/>
+                                <LikeFooterItem />
+                                <LikeFooterItem />
+                                <LikeFooterItem />
+                                <LikeFooterItem />
+                                <LikeFooterItem />
 
 
                             </div>

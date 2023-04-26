@@ -1,13 +1,24 @@
 import React from 'react';
 import Item from './childs/Item';
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from 'react';
+import { getUsers } from '../app/features/uzumData/thunk';
+
 
 const Famous = () => {
 
-    const grids  = useSelector(state => state.someReducer);
-    const liked_ids  = useSelector(state => state.liked.data_id);
-    
-    console.log(liked_ids);
+    const dispatch = useDispatch()
+
+    const grids = useSelector(state => state.someReducer.goods);
+    const liked_ids = useSelector(state => state.liked.data_id);
+
+
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [])
+
+    // console.log(getUsers);
+
     return (
         <div className='flex pt-[20px] justify-center'>
             <div className='w-[85%]'>

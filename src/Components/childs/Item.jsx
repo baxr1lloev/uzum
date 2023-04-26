@@ -5,27 +5,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addLiked, removeLiked } from '../../app/features/liked/LikedSlice';
 import { useEffect } from 'react';
+import { getUsers } from '../../app/features/uzumData/thunk';
+// import { fetchTodos } from '../../app/features/uzumData/dataSlice';
 
 
 const Item = ({ item, isLiked }) => {
 
     const [isLoading, setIsLoading] = useState(true);
-    const dispatch = useDispatch()
 
     setTimeout(() => {
         setIsLoading(false)
     }, 7000)
 
-    // const [liked, setLiked] = useState(false)
-    const liked = useSelector(state => state.liked);
-    console.log(liked);
 
-    // useEffect(() => { 
-    //     fetch("http://localhost:3000/goods") 
-    //       .then(res => res.json()) 
-    //       .then(res => setData(res)) 
-    //       .catch(err => console.log(err)) 
-    //   }, [])
+
+
+    // const [liked, setLiked] = useState(false)
+    const liked = useSelector(state => state.liked.data);
 
     return (
         <>
@@ -37,29 +33,11 @@ const Item = ({ item, isLiked }) => {
                         >
                         </div>
                         <div className='w-full content h-[25%]  pl-[10px]'>
-                            {/* <p className='text-[14px]  w-[150px]'>
-                        {item.title}
-                    </p>
-                    <div className='bg-[red]  justify-between flex items-center '>
-                        <p className='text-[16px]  '>
-                            {item.price}
-                        </p>
-                        <div className=''>
-                            <img src="/src/assets/shopping.svg" alt="" />
-                        </div>
-                    </div> */}
+            
                         </div>
                     </div>
 
-
-
-
-
-
-
                     :
-
-
 
                     <Link to={`/categories/:${item.id}`}>
                         <div className='h-[470px] shadow  cursor-pointer rounded-[12px] w-[230px]'>
