@@ -6,9 +6,31 @@
   // $background: #2c303a;
 
   .container {
+    // margin: auto;
     width: 100%;
-    // text-align: center;
-    border: none;
+    text-align: center;
+  }
+
+  .progress {
+    padding: 2px;
+    // background: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    // box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .progress-bar {
+    height: 6px;
+    background-color: #ee303c;
+    border-radius: 4px;
+    transition: 0.4s linear ease;
+    transition-property: width, background-color;
+  }
+
+  .progress-striped .progress-bar {
+    background-color: #7000ff;
+    width: 100%;
+
+    animation: progressAnimationStrike 6s;
   }
 
   @keyframes progressAnimationStrike {
@@ -20,49 +42,61 @@
     }
   }
 
-  .progress2 {
-    padding: 6px;
-    border-radius: 1px;
-    // background: rgba(0, 0, 0, 0.25);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
-      0 1px rgba(255, 255, 255, 0.08);
+  .shad {
+    box-shadow: inset 5px 5px 10px white, inset -5px -5px 10px #f0f0f0;
   }
 
-  .progress-bar2 {
-    height: 10px;
-    border-radius: 1px;
-    // background-image: linear-gradient(
-    //   to bottom,
-    //   rgba(255, 255, 255, 0.3),
-    //   rgba(255, 255, 255, 0.05)
-    // );
-    // transition: 0.4s linear;
-    transition-property: width, background-color;
+  .tt {
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow:  5px 5px 0px #b1b1b1,
+                 -5px -5px 0px #ffffff;
+    
+
   }
 
-  .progress-moved .progress-bar2 {
+  .cc {
+    margin: auto;
+    margin: 0;
+  }
+
+  .parent {
     width: 100%;
-    background-color: purple;
-    animation: progressAnimation 5s;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
   }
 
-  @keyframes progressAnimation {
-    0% {
-      width: 5%;
-      background-color: #f9bcca;
-    }
-    100% {
-      width: 100%;
-      background-color: purple;
-    }
+  .block {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -125px;
   }
 
+  .shd {
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  }
 
+  body {
+    background-color: black;
+  }
 
-  .shad{
-    box-shadow: inset 5px 5px 10px white,
-            inset -5px -5px 10px #f0f0f0;
+  .ten {
+    background: linear-gradient(150deg, #dddddd, #ffffff);
+    box-shadow: 5px 5px 10px #626262, -5px -5px 10px #ffffff;
+  }
 
+  .glass {
+    background: rgba(26, 26, 26, 0.32);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(26, 26, 26, 0.3);
   }
 
   $green: #4cd964;
@@ -71,4 +105,40 @@
   $light-blue: #7dc8e8;
   $purple: #5856d6;
   $red: #ff2d55;
+}
+
+.loading .image,
+.loading h4,
+.loading .description {
+  background-color: var(--loading-grey);
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, .5) 50%,
+    rgba(255, 255, 255, 0) 60%
+  ) var(--loading-grey);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
+
+.animation{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.animation_panel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 13%;
+  margin-right: 240px;
 }

@@ -9,10 +9,26 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 const Swipper = () => {
 
+    const [isLoading, setIsLoading] = useState(true);
 
+    setTimeout(() => {
+        setIsLoading(false)
+    }, 7000)
 
     return (
-        <>
+        <> {
+
+            isLoading ?
+                <div className='flex justify-center pt-[20px]'>
+                    <div className='w-[1344px] rounded-[10px] loading-block content image h-[406px] loading faf2 '>
+                        <div className='content'>
+                            <div className='image'></div>
+                        </div>
+                    </div>
+                </div>
+
+                :
+
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
@@ -79,6 +95,8 @@ const Swipper = () => {
                     </SwiperSlide>
 
                 </Swiper>
+
+        }
         </>
 
     );

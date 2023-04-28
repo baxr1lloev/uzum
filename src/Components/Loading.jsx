@@ -2,8 +2,11 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div className="linear-activity">
-            <div className="indeterminate"></div>
+        <div className="container">
+            <div className="progress progress-striped">
+                <div className="progress-bar">
+                </div>
+            </div>
         </div>
     );
 };

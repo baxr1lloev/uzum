@@ -19,7 +19,6 @@ const Rendering = ({ id }) => {
         dispatch(getUsers())
     }, [])
 
-
     return (
 
 
